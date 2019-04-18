@@ -1,0 +1,22 @@
+
+##  Ersatz fuer common-auth ##
+##  U2F+Gesicht / Passwort  ##
+
+# erster Faktor: U2F-Token
+auth	[success=ignore default=1]	pam_u2f.so
+
+# zweiter Faktor: Gesichtserkennung
+auth	[success=2 default=ignore] 	pam_python.so /lib/security/howdy/pam.py
+
+
+# Fallback -- funktioniert immer: Passwort
+auth	[success=1 default=ignore]	pam_unix.so	try_first_pass 
+
+# FAIL
+auth	requisite			pam_deny.so
+
+# SUCCESSS
+auth    required                        pam_permit.so 
+
+
+
