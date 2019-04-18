@@ -6,16 +6,15 @@ Details siehe "Entspannt entsperrt,
 Linux-Authentifizierung mit mehr Komfort", 
 c't 10/2019 Seite 132
 
+Dies sind PAM-Beispiel-Konfigurationen, die man anstelle 
+von "common-auth" einbinden kann. Alle inc-*-Konfigurationen 
+erlauben als Fallback immer eine Anmeldung mit dem System-Passwort:
 
 
 Achtung: Für die Authentifizierung mit Gesichtserkennung, 
 U2F-Token und PIN müssen die jeweiligen PMA-Bibliotheken 
 installiert werden. Die Details dazu erklärt der c't-Artikel.
 
-
-Dies sind PAM-Beispiel-Konfigurationen, die man anstelle 
-von "common-auth" einbinden kann. Alle inc-*-Konfigurationen 
-erlauben als Fallback immer eine Anmeldung mit dem System-Passwort:
 
 inc-pin+howdy-pw	PIN+Gesicht / Passwort
 inc-pin+u2f-pw		PIN+U2F-Token / Passwort
@@ -35,4 +34,3 @@ und ersetzt dann zB. in /etc/pam.d/sudo die Zeile mit "common-auth":
 
 +@include inc-u2f-pw
 +# @include common-auth
-
