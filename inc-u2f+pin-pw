@@ -2,7 +2,7 @@
 ##  PIN+U2F-Token / Passwort  ##
 
 # erster Faktor: U2F-Token
-auth	[success=ignore default=1]	pam_u2f.so
+auth	[success=ignore default=1]	pam_u2f.so	cue
 
 # zweiter Faktor: PIN
 auth	[success=2 default=ignore] 	pam_userdb.so crypt=crypt db=/etc/pinlist

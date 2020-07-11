@@ -5,7 +5,7 @@
 auth	[success=ignore default=1]	pam_userdb.so crypt=crypt db=/etc/pinlist
 
 # zweiter Faktor: U2F-Token
-auth	[success=2 default=ignore] 	pam_u2f.so 
+auth	[success=2 default=ignore] 	pam_u2f.so	cue 
 
 
 
